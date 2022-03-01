@@ -55,8 +55,36 @@ const NuevoProducto = () => {
 
   // context con las operaciones crud de firebase
   const { usuario, firebase } = useContext(FirebaseContext);
+  const usuariosRef = firebase.db.collection("usuarios");
+
+  const [permitido, setPermitido] = useState()
+
+
+  function obtenerDatos(usuario) {
+    usuariosRef.get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        console.log(doc.id, " => ", doc.data().nombre);
+        if (usuario) {
+          if (usuario.displayName == doc.data().nombre) {
+            console.log(usuario.displayName);
+            console.log(doc.data().nombre);
+            console.log("nombres iguales");
+            console.log(doc.data().puedePublicar);
+            setPermitido(doc.data().puedePublicar)
+          }
+        }
+      });
+    });
+  }
+
+  console.log(permitido)
+  obtenerDatos(usuario)
+
 
   async function crearProducto() {
+
+
     // si el usuario no esta autenticado llevar al login
     if (!usuario) {
       return router.push("/login");
@@ -118,7 +146,7 @@ const NuevoProducto = () => {
   return (
     <div>
       <Layout>
-        {!usuario || usuario.uid.rol == 'empleador' ? (
+        {!usuario || !permitido ? (
           <Error404 />
         ) : (
           <>

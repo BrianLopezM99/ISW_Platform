@@ -27,7 +27,7 @@ const DetallesProducto = ({ producto }) => {
         </div>
 
         <div>
-        <Titulo>Empresa: {empresa} </Titulo>
+        <Titulo>Empresa: {empresa}</Titulo>
         <hr/>
           <Link href="/productos/[id]" as={`/productos/${id}`}>
             <Titulo>{nombre} </Titulo>
@@ -78,10 +78,12 @@ const FotCont = styled.div`
 `;
 
 const Desc = styled.p`
+color: black;
   margin-left: 2rem;
 `;
 
 const Titulo = styled.a`
+  color: black;
   font-size: 2rem;
   font-weight: bold;
   margin: 0;
