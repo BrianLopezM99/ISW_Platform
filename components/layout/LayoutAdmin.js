@@ -17,19 +17,24 @@ const LayoutAdmin = (props) => {
           rel="stylesheet"
         />
         <link rel="stylesheet" href="/static/css/App.css" />
-        
-    <link rel="icon" href="/static/img/favicon.ico" type="image/x-icon"/>
-    
-    <link rel="stylesheet" href="/static/fonts/fontawesome/css/fontawesome-all.min.css"/>
-    
-    <link rel="stylesheet" href="/static/plugins/animation/css/animate.min.css"/>
-    
-    <link rel="stylesheet" href="/static/css/style.css"/>
+
+        <link rel="icon" href="/static/img/favicon.ico" type="image/x-icon" />
+
+        <link
+          rel="stylesheet"
+          href="/static/fonts/fontawesome/css/fontawesome-all.min.css"
+        />
+
+        <link
+          rel="stylesheet"
+          href="/static/plugins/animation/css/animate.min.css"
+        />
+        <link rel="stylesheet" href="/static/css/style.css" />
       </Head>
       <main>{props.children}</main>
       <script src="/static/js/vendor-all.min.js"></script>
-	<script src="/static/plugins/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/static/js/pcoded.min.js"></script>
+      <script src="/static/plugins/bootstrap/js/bootstrap.min.js"></script>
+      <script src="/static/js/pcoded.min.js"></script>
     </>
   );
 };

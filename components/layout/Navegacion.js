@@ -34,6 +34,7 @@ const Nav = styled.nav`
 
 const Navegacion = () => {
   const [publicar, setPublicar] = useState();
+  const [superUser, setSuperUser] = useState()
 
   const { firebase, usuario } = useContext(FirebaseContext);
 
@@ -51,7 +52,6 @@ const Navegacion = () => {
   function obtenerDatos(usuario) {
     usuariosRef.get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
-        // doc.data() is never undefined for query doc snapshots
         console.log(doc.id, " => ", doc.data().nombre);
         if (usuario) {
           if (usuario.displayName == doc.data().nombre) {
@@ -60,6 +60,8 @@ const Navegacion = () => {
             console.log("nombres iguales");
             console.log(doc.data().puedePublicar);
             setPublicar(doc.data().puedePublicar);
+            console.log(doc.data().superUsuario);
+            setSuperUser(doc.data().superUsuario)
           }
         }
       });
@@ -82,7 +84,12 @@ const Navegacion = () => {
       </Link>
       {publicar && (
         <Link href="/nuevo-producto">
-          <a>Nueva Oferta (SOLO EMPLEADORES)</a>
+          <a>Nueva Oferta</a>
+        </Link>
+      )}
+      {superUser && (
+        <Link href="/admin">
+          Panel de Administrador
         </Link>
       )}
     </Nav>

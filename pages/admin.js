@@ -14,7 +14,7 @@ const Admin = () => {
 
   const usuariosRef = firebase.db.collection("usuarios");
 
-  const [superRol, setSuperRol] = useState()
+  const [superRol, setSuperRol] = useState();
 
   //  console.log(usuariosRef.doc());
 
@@ -36,15 +36,15 @@ const Admin = () => {
             console.log(doc.data().superUsuario);
             console.log("nombres iguales");
             console.log(doc.data().puedePublicar);
-            setSuperRol(doc.data().superUsuario)
+            setSuperRol(doc.data().superUsuario);
           }
         }
       });
     });
   }
 
-  obtenerDatos(usuario)
-  console.log(superRol)
+  obtenerDatos(usuario);
+  console.log(superRol);
 
   function obtenerMidTrue(mid) {
     firebase.db
@@ -129,7 +129,7 @@ const Admin = () => {
               <div className="navbar-content scroll-div">
                 <ul className="nav pcoded-inner-navbar">
                   <li className="nav-item pcoded-menu-caption">
-                    <label>Navigation</label>
+                    <label>Navegacion</label>
                   </li>
                   <li
                     data-username="dashboard Default Ecommerce CRM Analytics Crypto Project"
@@ -140,6 +140,14 @@ const Admin = () => {
                         <i className="feather icon-home"></i>
                       </span>
                       <span className="pcoded-mtext">Dashboard</span>
+                    </a>
+                  </li>
+                  <li data-username="Sample Page" className="nav-item">
+                    <a href="/" className="nav-link">
+                      <span className="pcoded-micon">
+                        <i className="feather icon-sidebar"></i>
+                      </span>
+                      <span className="pcoded-mtext">Volver</span>
                     </a>
                   </li>
                 </ul>
@@ -198,19 +206,44 @@ const Admin = () => {
                                           <h6 className="mb-1">
                                             {usuario.nombre}
                                           </h6>
-                                          <p className="m-0">Tipo: {usuario.rol}</p>
-                                          {usuario.telefono && <p className="m-0">Telefono : {usuario.telefono}</p> }
-                                          {usuario.direccion && <p className="m-0">Dirección : {usuario.direccion}</p> }
-                                          {usuario.giroEmpresarial && <p className="m-0">Giro Empresarial : {usuario.giroEmpresarial}</p> }
-                                          {usuario.puesto && <p className="m-0">Puesto : {usuario.puesto}</p> }
-                                          <p className="m-0">Correo: {usuario.correo}</p>
+                                          <p className="m-0">
+                                            Tipo: {usuario.rol}
+                                          </p>
+                                          {usuario.telefono && (
+                                            <p className="m-0">
+                                              Telefono : {usuario.telefono}
+                                            </p>
+                                          )}
+                                          {usuario.direccion && (
+                                            <p className="m-0">
+                                              Dirección : {usuario.direccion}
+                                            </p>
+                                          )}
+                                          {usuario.giroEmpresarial && (
+                                            <p className="m-0">
+                                              Giro Empresarial :{" "}
+                                              {usuario.giroEmpresarial}
+                                            </p>
+                                          )}
+                                          {usuario.puesto && (
+                                            <p className="m-0">
+                                              Puesto : {usuario.puesto}
+                                            </p>
+                                          )}
+                                          <p className="m-0">
+                                            Correo: {usuario.correo}
+                                          </p>
                                         </td>
                                         <td>
                                           <h6 className="text-muted">
                                             {usuario.puedePublicar ? (
-                                              <i className="fas fa-circle text-c-green f-10 m-r-15">Habilidato</i>
+                                              <i className="fas fa-circle text-c-green f-10 m-r-15">
+                                                Habilidato
+                                              </i>
                                             ) : (
-                                              <i className="fas fa-circle text-c-red f-10 m-r-15">Deshabilitado</i>
+                                              <i className="fas fa-circle text-c-red f-10 m-r-15">
+                                                Deshabilitado
+                                              </i>
                                             )}
                                             Usuario creado hace:{" "}
                                             {formatDistanceToNow(
@@ -220,7 +253,7 @@ const Admin = () => {
                                           </h6>
                                         </td>
                                         <td>
-                                          <button
+                                          <a
                                             className="label theme-bg text-white f-12"
                                             onClick={() =>
                                               obtenerMidFalse(
@@ -229,8 +262,8 @@ const Admin = () => {
                                             }
                                           >
                                             Desactivar
-                                          </button>
-                                          <button
+                                          </a>
+                                          <a
                                             className="label theme-bg text-white f-12"
                                             onClick={() =>
                                               obtenerMidTrue(
@@ -239,7 +272,7 @@ const Admin = () => {
                                             }
                                           >
                                             Activar
-                                          </button>
+                                          </a>
                                         </td>
                                       </tr>
                                     ))}

@@ -358,7 +358,7 @@ const Producto = () => {
                     margin-top: 5rem;
                   `}
                 >
-                  {!usuario && (
+                  {/* {!usuario && (
                     <p
                       css={css`
                         font-weight: bold;
@@ -369,16 +369,16 @@ const Producto = () => {
                       Para votar inicia sesión o crea una cuenta
                     </p>
                   )}
-                  {usuario && <Boton onClick={votarProducto}>Votar</Boton>}
+                  {usuario && <Boton onClick={votarProducto}>Votar</Boton>} */}
                   <p
                     css={css`
                       text-align: center;
                     `}
                   >
-                    {votos} {votos === 1 ? "Voto" : "Votos"}
+                    {/* {votos} {votos === 1 ? "Voto" : "Votos"} */}
                   </p>
                   {puedeBorrar() && (
-                    <Boton onClick={eliminarProducto}>Eliminar Producto</Boton>
+                    <Boton onClick={eliminarProducto}>Eliminar Publicacion</Boton>
                   )}
                 </div>
               </aside>

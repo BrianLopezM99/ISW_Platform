@@ -86,6 +86,7 @@ body {
 a:hover {
   outline: none;
   text-decoration: none;
+  cursor: pointer
 }
 
 h1,
